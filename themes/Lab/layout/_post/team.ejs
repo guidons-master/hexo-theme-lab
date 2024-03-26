@@ -1,0 +1,48 @@
+<div class="team">
+    <div class="sticky">
+        <figure class="image is-128x128-tablet is-256x256" style="margin: 0 auto 0.2rem auto;">
+            <img class="is-rounded" src="https://avatars.githubusercontent.com/u/1?v=4" alt="avatar">
+        </figure>
+        <p class="has-text-centered has-text-weight-semibold is-size-4"><%= page.name %></p>
+        <p class="content"><%= page.description %></p>
+        <div class="tags">
+            <% page.skill.split(',').forEach(function(skill) { %>
+                <span class="tag is-info"><%= skill.trim() %></span>
+            <% }) %>
+        </div>
+        <div class="info">
+            <p><span class="icon"><i class="fas fa-map-marker-alt"></i></span> <%= page.location %></p>
+            <p class="is-flex is-align-items-start is-flex-wrap-nowrap"><span class="icon"><i class="fas fa-envelope"></i></span> <a href="mailto:<%= page.email %>"><%= page.email %></a></p>
+            <p class="is-flex is-align-items-start is-flex-wrap-nowrap"><span class="icon"><i class="fas fa-globe"></i></span> <a href="<%= page.blog %>"><%= page.blog %></a></p>
+            <p class="is-flex is-align-items-start is-flex-wrap-nowrap">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <a href="<%= page.github %>"><%= page.github %></a>
+            </p> 
+        </div>   
+    </div>
+    <div id='markdown-container' class="context">
+        <%- page.content %>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let path = "<%= url_for(theme.stylesheet[1]) %>";
+            const container = document.getElementById('markdown-container');
+            const shadowRoot = container.attachShadow({mode: 'open'});
+            const styleElement = document.createElement('style');
+            styleElement.textContent = `
+                @import url(${path});
+                .markdown-body.dark img, .markdown-body.dark picture, .markdown-body.dark video, .markdown-body.dark canvas, .markdown-body.dark svg {
+                    filter: invert(1) hue-rotate(180deg)
+                }
+                .markdown-body {
+                    word-wrap: break-word;
+                }
+            `;
+            const markdownBody = document.createElement('div');
+            markdownBody.className = 'markdown-body';
+            markdownBody.innerHTML = container.innerHTML;
+            shadowRoot.append(styleElement, markdownBody);
+            container.textContent = '';
+        });
+    </script>
+</div>

@@ -1,0 +1,59 @@
+<div class="tile is-ancestor" style="width: 80vw; margin: auto;">
+  <div class="tile is-vertical is-8">
+    <div class="tile is-parent">
+      <article class="tile is-child box notification is-warning has-text-black">
+        <p class="title"><i class="fas fa-user-plus"></i> <%- __('Recruitment') %></p>
+        <p class="subtitle "><%- __('We welcome you who are passionate about scientific research to join us') %></p>
+        <div class="content has-text-justified">
+        <% for (let i = 0; i < theme.lab.recruitment.length; i++) { %>
+          <p><%- theme.lab.recruitment[i] %></p>
+        <% } %>
+        </div>
+      </article>
+    </div>
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child box notification is-success has-text-black">
+          <p class="title"><i class="fas fa-map-marker-alt"></i> <%- __('Lab Address') %></p>
+          <div class="content has-text-justified is-size-5">
+            <p><%- theme.lab.location.city %>, <%- theme.lab.location.province %>, <%- theme.lab.location.country %></p>
+            <p><%- theme.lab.location.address %></p>
+            <p><%- __('Postal Code') %>: <%- theme.lab.location.zip %></p>
+          </div>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box notification is-info has-text-black">
+          <p class="title"><i class="fas fa-map"></i> <%- __('Map') %></p>
+          <div class="content">
+            <iframe src="<%- theme.lab.location.map %>" width="100%" height="200" frameborder="0" style="border-radius: 10px;"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child box notification is-primary">
+      <div class="content has-text-black">
+        <p class="title"><i class="fas fa-envelope"></i> <%- __('Contact Us') %></p>
+        <p class="subtitle"><%- __('If you are interested in our laboratory, welcome to contact us') %></p>
+        <div class="content">
+          <% for (let i = 0; i < theme.lab.contact.length; i++) { %>
+          <article class="media is-align-items-center">
+            <figure class="media-left image is-96x96" style="margin-bottom: 0; margin-left: 0;">
+              <img src="<%- url_for(theme.lab.contact[i].img) %>" alt="<%- theme.lab.contact[i].name %>">
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <strong><%- theme.lab.contact[i].name %></strong>
+                <br>
+                <a class="has-text-link" style="text-decoration: none;" href="mailto:<%- theme.lab.contact[i].email %>"><%- theme.lab.contact[i].email %></a>
+              </div>
+            </div>
+          </article>
+          <% } %>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

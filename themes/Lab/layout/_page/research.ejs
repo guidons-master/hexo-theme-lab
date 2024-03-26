@@ -1,0 +1,82 @@
+<div class="page is-flex-grow-1 is-flex is-flex-direction-column">
+  <% let count = 0 %>
+  <script>const perPagePosts = <%= theme.per_page_posts %></script>
+  <div class="is-flex-grow-1" style="width: 100%; margin-bottom: 24px">
+    <% site.pages.filter(function(page) { 
+      return page.path.startsWith('research/') && !page.path.endsWith('/index.html');
+    }).each(function(page) { %>
+    <div class="box" style="display: <%= ++count > theme.per_page_posts ? 'none' : '' %>">
+      <article class="columns">
+        <div class="column is-narrow">
+          <figure class="image is-128x128" style="margin: 0 auto;">
+            <img src="<%- url_for(page.image) %>" alt="<%= page.title %>">
+          </figure>
+        </div>
+        <div class="column is-flex is-flex-direction-column is-justify-content-space-between">
+          <div class="content mb-2">
+            <a href="<%= page.path.replace('research/', '') %>" class="has-text-weight-semibold is-size-6 is-capitalized">
+              <%= page.title %>
+            </a>
+            <p>
+              <%= page.desc %>
+            </p>
+          </div>
+          <nav class="breadcrumb has-bullet-separator" aria-label="breadcrumbs">
+            <ul>
+              <% if (page.publication) { %>
+              <li>
+                <a class="has-text-black">
+                  <span class="icon is-small">
+                    <i class="fas fa-vial"></i>
+                  </span>
+                  <span><%= page.publication %></span>
+                </a>
+              </li>
+              <% } %>
+              <% if (page.pub_date) { %>
+              <li>
+                <a class="has-text-black">
+                  <span class="icon is-small">
+                    <i class="far fa-calendar-alt"></i>
+                  </span>
+                  <span><%= page.pub_date %></span>
+                </a>
+              </li>
+              <% } %>
+              <% if (page.doi) { %>
+              <li>
+                <a href="https://doi.org/<%= page.doi %>">
+                  <span class="icon is-small">
+                    <i class="fas fa-link"></i>
+                  </span>
+                  <span>doi:<%= page.doi %></span>
+                </a>
+              </li>
+              <% } %>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </div>
+    <% }) %>
+  </div>
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous button is-rounded is-hidden-mobile is-disabled" style="display: <%= count ? '' : 'none' %>">
+      <span class="icon">
+        <i class="fas fa-chevron-left"></i>
+      </span> 
+    </a>
+    <a class="pagination-next button is-rounded is-hidden-mobile <%= count > theme.per_page_posts ? '' : 'is-disabled' %>" style="display: <%= count ? '' : 'none' %>">
+      <span class="icon">
+        <i class="fas fa-chevron-right"></i>
+      </span>
+    </a>
+    <ul class="pagination-list">
+      <% for (let i = 1; i <= Math.ceil(count / theme.per_page_posts); i++) { %>
+        <li>
+          <a class="pagination-link <%= i === 1 ? 'is-current' : '' %>" aria-label="Goto page <%= i %>"><%= i %></a>  
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</div>

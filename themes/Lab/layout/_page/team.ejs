@@ -1,0 +1,57 @@
+<div class="tabs is-centered is-boxed mtb-2" id="tabs">
+  <ul>
+    <li class="is-active" data-tab="professor">
+      <a>
+        <span class="icon">
+          <i class="fas fa-user-tie"></i>
+        </span>
+        <span><%= __("Professor") %></span>
+      </a>
+    </li>
+    <li data-tab="lecturer">
+      <a>
+        <span class="icon">
+          <i class="fas fa-chalkboard-teacher"></i>
+        </span>
+        <span><%= __("Lecturer") %></span>
+      </a>
+    </li>
+    <li data-tab="phd">
+      <a>
+        <span class="icon">
+          <i class="fas fa-graduation-cap"></i>
+        </span>
+        <span><%= __("PhD") %></span>
+      </a>
+    </li>
+    <li data-tab="master">
+      <a>
+        <span class="icon">
+          <i class="fas fa-university"></i>
+        </span>
+        <span><%= __("Master") %></span>
+      </a>
+    </li>
+  </ul>
+</div>
+<% function renderTeamMembers(type) { %>
+  <div id="<%= type %>" class="tab-content" style="display: <%= type === 'professor' ? 'block' : 'none' %>">
+    <div class="columns is-multiline is-centered">
+      <% site.pages.filter(function(page){ 
+        return page.path.startsWith('team/' + type + '/') && !page.path.endsWith('/index.html');
+      }).each(function(page){ %>
+        <div class="column is-one-quarter">
+          <a class="teacher-card is-flex is-flex-direction-column is-align-items-center has-text-centered" href="<%= page.path.replace('team/', '') %>">
+            <figure class="image mb-2">
+              <img class="is-rounded teacher-image" src="<%= page.image %>" alt="<%= page.name %>">
+            </figure>
+            <span class="is-size-5 has-text-weight-semibold"><%= page.name %></span>
+            <span class="is-size-6"><%= page.description %></span>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+<% } %>
+
+<% ['professor', 'lecturer', 'phd', 'master'].forEach(renderTeamMembers) %>

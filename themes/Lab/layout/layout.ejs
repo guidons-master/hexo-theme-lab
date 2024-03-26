@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+
+    <head>
+        <%- partial('_partial/head', {cache: true}) %>
+    </head>
+
+    <body class="is-flex is-flex-direction-column">
+        <noscript>
+            <div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="notification is-danger is-light has-text-centered">
+                        <b><%= __('This site requires JavaScript. Please enable it in your browser settings.') %></b>
+                    </div>
+                </div>
+            </div>
+        </noscript>
+        <%- partial('_partial/header', {cache: true}) %>
+        <div class="<%= page.path === 'index.html' ? '' : 'container is-fluid' %> body is-flex is-flex-direction-column is-flex-grow-1">
+            <%- body %>
+        </div>
+        <%- partial('_partial/footer', {cache: true}) %>
+    </body>
+
+</html>

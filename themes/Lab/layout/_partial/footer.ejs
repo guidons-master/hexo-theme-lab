@@ -1,0 +1,47 @@
+<footer class="footer">
+  <div class="has-text-centered">
+    <nav class="breadcrumb is-centered" aria-label="friend_link">
+      <ul class="is-size-6 is-size-7-mobile">
+        <li>
+          <a href="<%- url_for(theme.lab.links[0].url) %>" target="_blank">
+              <span class="icon is-small is-link">
+                <i class="fas fa-university" aria-hidden="true"></i>
+              </span>
+              <span><%= theme.lab.links[0].name %></span>
+          </a>
+        </li>
+        <li>
+          <a href="<%- url_for(theme.lab.links[1].url) %>" target="_blank">
+            <span class="icon is-small is-link">
+              <i class="fas fa-graduation-cap"></i>
+            </span>
+            <span><%= theme.lab.links[1].name %></span>
+        </a>
+        </li>
+        <li class="is-active">
+          <a href="/">
+            <span class="icon is-small">
+              <i class="fas fa-flask"></i>
+            </span>
+            <span>MAPLab</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <p class="is-size-6 is-size-7-mobile">
+      <span class="icon">
+        <i class="fas fa-copyright"></i>
+      </span><%= new Date().getFullYear() %> <a href="/">MAPLab</a> All Rights Reserved.
+      <span class="icon">
+        <i class="fas fa-cog fa-spin fa-fw"></i>
+      </span>Powered by <a href="https://hexo.io/" target="_blank">Hexo </a>&
+      <a href="https://github.com/guidons-master/hexo-theme-lab" target="_blank"> Lab</a>
+    </p>
+  </div>
+</footer>
+
+<button class="button is-link is-outlined" id="back-to-top">
+  <span class="icon">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </span>
+</button>

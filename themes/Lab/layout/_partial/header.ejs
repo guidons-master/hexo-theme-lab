@@ -1,0 +1,71 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img class="is-rounded" src="<%- url_for(theme.lab.logo) %>" alt="lab-logo">
+            <span class="title is-6 lab-name"><%- __(theme.lab.name) %></span>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbar-menu" class="navbar-menu">
+        <div class="navbar-end">
+            <% theme.menu.forEach(function(menuItem) { %>
+                <a class="navbar-item <% if (page.path.startsWith(menuItem.url.slice(1) || 'index')) { %>active<% } %>" href="<%- url_for(menuItem.url) %>">
+                    <strong><%- __(menuItem.title) %></strong>
+                </a>
+            <% }) %>
+            <!-- <a class="navbar-item" id="lang">
+                <span class="icon">
+                    <i class="fas fa-language"></i>
+                </span>
+            </a> -->
+            <a class="navbar-item" id="mode">
+                <span class="icon">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </span>
+            </a>
+            <a class="navbar-item js-modal-trigger" data-target="search-input" id="search">
+                <span class="icon" id="search-icon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </a>
+            <div class="modal" id="search-input">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                    <nav class="panel is-link" style="background-color: white">
+                      <p class="panel-heading">
+                        <%- __('Search') %>
+                      </p>
+                      <div class="panel-block">
+                        <p class="control has-icons-left">
+                          <input class="input" type="text" placeholder="Search">
+                          <span class="icon is-left">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <p class="panel-tabs">
+                        <a class="is-active" id="tab-all"><%- __('All') %></a>
+                        <a id="tab-team"><%- __('Team') %></a>
+                        <a id="tab-projects"><%- __('Projects') %></a>
+                        <a id="tab-research"><%- __('Research') %></a>
+                      </p>
+                      <div class="panel-block" style="opacity: 0">
+                      </div>
+                      <div class="panel-blocks">
+                      </div>
+                    </nav>
+                </div>
+            </div>
+            <a class="navbar-item" href="<%- url_for(theme.lab.github) %>" target="_blank">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>

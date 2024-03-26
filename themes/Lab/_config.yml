@@ -1,0 +1,67 @@
+stylesheet: 
+  - /css/main.css
+  - /css/github-markdown.min.css
+
+script: 
+  - /js/main.js
+
+github: https://github.com/guidons-masters/hexo-theme-lab
+
+menu: 
+  - title: Home
+    url: /
+  - title: Team
+    url: /team
+  - title: Research
+    url: /research
+  - title: Projects
+    url: /projects
+  - title: Contact
+    url: /contact
+
+per_page_posts: 5
+
+mathjax:
+  src: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+lab:
+  name: 机器感知与计算智能实验室
+  background: /assets/img/background.jpg
+  logo: /assets/img/logo.jpg
+  welcome: 欢迎访问机器感知与计算智能实验室
+  image: https://bulma.io/assets/images/placeholders/600x480.png
+  introduce: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, voluptatem repudiandae adipisci quod consequuntur eum quis quos vitae quasi nostrum facere quam. Fuga, perferendis! Unde tenetur provident corporis voluptatibus architecto accusantium consectetur et, dolores, non mollitia deserunt alias, atque recusandae pariatur commodi aut veritatis! Corporis quae dolor velit et, omnis praesentium quisquam, laboriosam reprehenderit animi id fugiat quia modi alias.
+  github: https://github.com/MAPLab
+  links:
+    - name: 东北大学
+      url: https://www.neu.edu.cn/
+
+    - name: 信息学院 
+      url: https://ise.neu.edu.cn/
+  
+  location:
+    address: 和平区文化路3号巷
+    city: 沈阳
+    province: 辽宁
+    country: 中国
+    zip: 110169
+    map: https://www.openstreetmap.org/export/embed.html?bbox=123.4326%2C41.8053%2C123.4373%2C41.8083&layer=mapnik
+
+  recruitment:
+    - "1. 具有较强的计算机编程能力，具有较强的自学能力。"
+    - "2. 具备较好的英文阅读和写作能力。"
+    - "3. 责任心强、有团队精神，能吃苦耐劳，积极进取。"
+    - "欢迎控制科学与工程、模式识别与智能系统、人工智能、控制工程、电子信息专业学生报考东北大学机器感知与计算智能实验室博士、硕士研究生！"
+
+  contact:
+    - name: John Doe
+      email: johndoe@example.com
+      img: https://bulma.io/assets/images/placeholders/96x96.png
+    
+    - name: Jane Smith
+      email: janesmith@example.com
+      img: https://bulma.io/assets/images/placeholders/96x96.png
+    
+    - name: Robert Johnson
+      email: robertjohnson@example.com
+      img: https://bulma.io/assets/images/placeholders/96x96.png

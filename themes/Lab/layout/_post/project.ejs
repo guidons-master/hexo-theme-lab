@@ -1,0 +1,26 @@
+<div class="mtb-2" id="markdown-container">
+    <script type="text/javascript" async src="<%= page.mathjax ? theme.mathjax.src : '' %>"></script>
+        <div class="content">
+            <%- page.content %>
+        </div>
+</div>
+<!-- <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('markdown-container');
+    const shadowRoot = container.attachShadow({mode: 'open'});
+    const styleElement = document.createElement('style');
+    styleElement.textContent = "@import url('/css/github-markdown.min.css');";
+    if (mathjax !== '') {
+        const scriptElement = document.createElement('script');
+        scriptElement.type = 'text/javascript';
+        scriptElement.src = mathjax;
+        scriptElement.async = true;
+        shadowRoot.appendChild(scriptElement);
+    }
+    const markdownBody = document.createElement('div');
+    markdownBody.className = 'markdown-body';
+    markdownBody.innerHTML = container.innerHTML;
+    shadowRoot.append(styleElement, markdownBody);
+    container.textContent = '';
+});
+</script> -->

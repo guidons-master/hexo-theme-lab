@@ -1,0 +1,23 @@
+<section class="hero gradient-background is-flex-grow-1">
+  <div class="hero-body is-flex is-justify-content-center is-align-items-center">
+    <div class="columns is-centered is-vcentered">
+      <div class="column is-half-desktop is-full-mobile pl-6-desktop">
+        <div class="content is-normal">
+          <h1 class="welcome">
+            <%= __(theme.lab.welcome) %>
+          </h1>
+          <p class="introduce">
+            <%= __(theme.lab.introduce) %>
+          </p>
+          <a class="button is-outlined is-primary is-rounded" href="<%- url_for(theme.menu[1].url) %>
+          "><%= __("Learn More") %></a>
+        </div>
+      </div>
+      <div class="column is-half-desktop is-full-mobile">
+        <figure class="image is-4by3 desktop-image-size">
+          <img src="<%- url_for(theme.lab.image) %>" alt="lab-image">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
