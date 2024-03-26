@@ -22,11 +22,13 @@ function loadScript(src, defer, async, autoReplaceSvg, root = "/hexo-theme-lab")
     };
 })();
 
-loadScript("/js/fontawesome.js", false, true, "nest");
-loadScript("/js/header.js", true, false);
-loadScript("/js/footer.js", true, false);
-loadScript("/js/pagination.js", true, false);
-loadScript("/js/team.js", true, false);
-loadScript("/js/search.js", true, false);
+document.addEventListener('DOMContentLoaded', function() {
+    loadScript("/js/fontawesome.js", false, true, "nest");
+    loadScript("/js/header.js", true, false);
+    loadScript("/js/footer.js", true, false);
+    loadScript("/js/pagination.js", true, false);
+    loadScript("/js/team.js", true, false);
+    loadScript("/js/search.js", true, false);
+});
 
 console.log("main.js loaded")
